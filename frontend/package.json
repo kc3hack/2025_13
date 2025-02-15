@@ -9,7 +9,7 @@
         "lint": "eslint --ignore-path .gitignore --cache --cache-location ./node_modules/.cache/eslint .",
         "start": "remix-serve ./build/server/index.js",
         "typecheck": "tsc",
-        "format": "prettier --check ./{app,tests}/**/*.{ts,tsx}"
+        "format": "prettier --write ./{app,tests}/**/*.{ts,tsx}"
     },
     "dependencies": {
         "@remix-run/node": "^2.15.3",
