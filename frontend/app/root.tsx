@@ -1,3 +1,4 @@
+import type { LinksFunction } from '@remix-run/node'
 import {
     Links,
     Meta,
@@ -5,7 +6,6 @@ import {
     Scripts,
     ScrollRestoration,
 } from '@remix-run/react'
-import type { LinksFunction } from '@remix-run/node'
 
 import './tailwind.css'
 
@@ -22,7 +22,7 @@ export const links: LinksFunction = () => [
     },
 ]
 
-export function Layout({ children }: { children: React.ReactNode }) {
+export function Layout() {
     return (
         <html lang="en">
             <head>
@@ -34,8 +34,20 @@ export function Layout({ children }: { children: React.ReactNode }) {
                 <Meta />
                 <Links />
             </head>
-            <body>
-                {children}
+            {/* 背景画像は暫定なので後で変更してください */}
+            <body
+                style={{ backgroundImage: 'url(/background_v2.webp)' }}
+                className="w-full h-full"
+            >
+                <header className="flex flex-col items-center gap-9">
+                    <h1 className="leading text-2xl font-bold text-gray-500 dark:text-gray-100">
+                        関西弁Detector
+                    </h1>
+                </header>
+                <Outlet />
+                <footer className="flex flex-col items-center gap-4 p-6 text-gray-500 dark:text-gray-200">
+                    <p>© 2025 KDIX.Security</p>
+                </footer>
                 <ScrollRestoration />
                 <Scripts />
             </body>
