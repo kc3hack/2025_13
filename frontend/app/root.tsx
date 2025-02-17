@@ -24,7 +24,7 @@ export const links: LinksFunction = () => [
 
 export function Layout() {
     return (
-        <html lang="en">
+        <html lang="ja">
             <head>
                 <meta charSet="utf-8" />
                 <meta
@@ -35,19 +35,23 @@ export function Layout() {
                 <Links />
             </head>
             {/* 背景画像は暫定なので後で変更してください */}
-            <body
-                style={{ backgroundImage: 'url(/background_v2.webp)' }}
-                className="w-full h-full"
-            >
+            <body className="bg-cover bg-[url(/background_v2.webp)] text-black">
+                {/**<div className="bg-[radial-gradient(circle,transparent_20%,transparent_20%)] bg-[length:10px_10px]">**/}
                 <header className="flex flex-col items-center gap-9">
                     <h1 className="leading text-2xl font-bold text-gray-500 dark:text-gray-100">
                         関西弁Detector
                     </h1>
                 </header>
-                <Outlet />
+                <main className="w-full p-4">
+                    <div className="border rounded-xl max-w-screen-lg w-full m-auto">
+                        <Outlet />
+                    </div>
+                </main>
                 <footer className="flex flex-col items-center gap-4 p-6 text-gray-500 dark:text-gray-200">
                     <p>© 2025 KDIX.Security</p>
                 </footer>
+                {/*</div>*/}
+
                 <ScrollRestoration />
                 <Scripts />
             </body>
