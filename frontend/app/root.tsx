@@ -1,16 +1,24 @@
 import type { LinksFunction } from "@remix-run/node";
 
 import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration } from "@remix-run/react";
-import { PiMicrophoneFill } from "react-icons/pi";
 
 import globalsStylesheetUrl from "~/globals.css?url";
 
 export const links: LinksFunction = () => {
   return [
-    { href: "/favicon-96x96.png", rel: "icon", sizes: "96x96", type: "image/png" },
+    {
+      href: "/favicon-96x96.png",
+      rel: "icon",
+      sizes: "96x96",
+      type: "image/png",
+    },
     { href: "/favicon.svg", rel: "icon", type: "image/svg+xml" },
     { href: "/favicon.ico", rel: "shortcut icon" },
-    { href: "/apple-touch-icon.png", rel: "apple-touch-icon", sizes: "180x180" },
+    {
+      href: "/apple-touch-icon.png",
+      rel: "apple-touch-icon",
+      sizes: "180x180",
+    },
     { href: "/site.webmanifest", rel: "manifest" },
     { href: globalsStylesheetUrl, rel: "stylesheet" },
   ];
@@ -26,49 +34,35 @@ export default function App() {
         <Links />
       </head>
       <body>
-        <div className="-z-20 bg-[#13141b] text-white font-sans min-h-screen flex flex-col items-center justify-center relative">
-          <div
-            className="absolute inset-0 -z-10"
-            style={{
-              backgroundImage: "radial-gradient(circle, #f7bb43 1px, transparent 1px)",
-              backgroundSize: "10px 10px",
-            }}
-          />
-          <img alt="BoldVoice Logo" className="h-8 mb-7" src="/apple-touch-icon.png" />{" "}
-          <div className="relative z-10 p-[32px] pb-[64px] rounded-[30px] border-1 border-[#f7bb43] h-full min-h-[751px] w-full max-w-[980px] bg-[#13141b] flex flex-col justify-between">
-            <div className="flex items-center mb-4 gap-[6px]">
-              <div className="w-[60px] h-[60px] p-2 flex items-center justify-center">
-                <div className="w-full h-full rounded-full bg-gradient-to-br from-red-500 to-pink-500" />
-              </div>
-              <div className="border border-[#f7bb43] rounded-[20px] rounded-tl-none py-[12px] px-[16px] flex flex-col gap-[2px] leading-[130%]">
-                <h1 className="text-sm font-semibold text-[#f7bb43]">The Oracle</h1>
-                <p className="text-md font-semibold text-white">
-                  Read this sentence for me and I&apos;ll guess your accent.
-                </p>
+        <div className="bg-[#13141b] relative min-h-[100dvh]">
+          <svg className="absolute top-0 left-0 right-0 bottom-0 min-h-[100dvh]" height="100%" width="100%">
+            <title>Background</title>
+            <defs>
+              <pattern height="10" id="pattern" patternUnits="userSpaceOnUse" width="10">
+                <rect fill="#13141b" height="10" width="10" />
+                <circle cx="5" cy="5" fill="#343434" r="0.5" stroke="#f7bb43" strokeWidth="1.5" />
+              </pattern>
+            </defs>
+            <rect fill="url(#pattern)" height="100%" width="100%" x="0" y="0" />
+          </svg>
+          <div className="z-10 relative h-[100%] min-h-[100dvh] flex gap-6">
+            <div className="pt-[20px] pl-[20px] pr-[20px] lg:ml-auto mr-auto absolute w-[100%] flex lg:items-center lg:justify-center items-start justify-start">
+              <a className="pt-1 pb-1 pr-[6px] pl-[6px] bg-[#13141b] text-white font-bold text-2xl" href="/">
+                OBACHAN
+              </a>
+            </div>
+            <div className="mt-[88px] mb-[72px] px-[20px] flex items-center flex-col justify-center flex-1">
+              <div className="bg-[#13141b] flex flex-col flex-1 overflow-hidden lg:p-[32px] lg:pb-[64px] p-[20px] pb-[30px] justify-between items-center rounded-[1.875rem] shadow-[0_0_36px_rgba(0,0,0,0.3)] border border-[#f7bb43] lg:w-[980px] md:max-w-[100%] lg:max-h-[660px] max-h-[100%] min-h-[100%]">
+                <Outlet />
               </div>
             </div>
-            <p className="lg:text-4xl text-xl font-medium leading-[110%] tracking-[-0.6px] lg:text-center text-[#F7BB43]">
-              Whenever I travel to a new city, I like to explore local bookstores. There&apos;s something magical about
-              discovering hidden gems among the shelves and finding a book that feels like it was waiting just for me.
-            </p>
-            <div className="flex flex-col">
-              <div className="flex justify-center">
-                <button
-                  aria-label="Tap to speak"
-                  className="w-20 h-20 rounded-full bg-white flex items-center justify-center shadow-lg focus:outline-none"
-                  type="button"
-                >
-                  <PiMicrophoneFill color="#13141b" size="46px" />
-                </button>
+            <div className="max-[427px]:pb-[14px] pb-[24px] ml-auto mr-auto absolute bottom-0 w-[100%] flex items-center justify-center">
+              <div className="text-[#f7bb43] flex-row gap-1 flex-wrap bg-[#13141b] py-[5.81px] text-xs leading-[120%] font-bold pr-[20px] pl-[20px] flex items-center justify-center text-center">
+                <div>© 2025 KDIX.Security. All rights reserved.</div>
               </div>
-              <p className="mt-2 text-center text-sm font-bold text-[#f7bb43]">Tap to speak</p>
             </div>
-          </div>
-          <div className="mt-4 text-center font-semibold text-xs leading-none text-[#f7bb43] bg-[#13141b] p-2">
-            <p>© 2025 BoldVoice. All rights reserved. </p>
           </div>
         </div>
-        <Outlet />
         <ScrollRestoration />
         <Scripts />
         <LiveReload />
