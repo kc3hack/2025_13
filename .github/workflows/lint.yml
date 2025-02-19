@@ -21,9 +21,10 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: latest
+          cache: npm
 
       - name: Install dependencies
-        run: npm i --only=dev
+        run: npm ci
 
       - name: Run Prettier
         run: npx prettier --ignore-path .gitignore -l .
