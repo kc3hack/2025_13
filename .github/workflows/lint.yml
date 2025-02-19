@@ -1,0 +1,35 @@
+name: Lint
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: frontend
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Install dependencies
+        run: npm i --only=dev
+
+      - name: Run Prettier
+        run: npx prettier --ignore-path .gitignore -l .
+
+      - name: Run ESLint
+        run: npx eslint --ignore-pattern .gitignore .
+
+      - name: Run TypeScript compiler
+        run: npx tsc
