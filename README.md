@@ -1,45 +1,59 @@
-# プロダクト名 
-<!-- プロダクト名に変更してください -->
+# プロダクト名
+
+OBACHAN（仮）
 
 ![プロダクト名](https://kc3.me/cms/wp-content/uploads/2024/11/hack25-eyecatch.png)
+
 <!-- プロダクト名・イメージ画像を差し変えてください -->
 
-
 ## チーム名
-チーム○ XXXX
-<!-- チームIDとチーム名を入力してください -->
 
+チーム 13 KDIX.Security
 
-## 背景・課題・解決されること
+## 背景
 
-<!-- テーマ「関西をいい感じに」に対して、考案するプロダクトがどういった(Why)背景から思いついたのか、どのよう(What)な課題があり、どのよう(How)に解決するのかを入力してください -->
-
+関西と言えば関西弁！温かみのある話し方が特徴です。関西弁に限らず、全国には独特で魅力的な方言が沢山あります。  
+そこで、日本のどの方言を話しているかを推測する Web サービスを開発することにしました。英語のアクセントがどの国のものであるか推測する[BoldVoice Accent Oracle](https://start.boldvoice.com/accent-oracle)に着想を得ました。
 
 ## プロダクト説明
 
-<!-- 開発したプロダクトの説明を入力してください -->
-
+発話者の訛りから方言を識別する Web サービスです。  
+表示された文章を読み上げると、その声を独自 AI が解析してどの方言の特徴に近いかを判断します。  
+関西に限らず全国の方言を判別します。
 
 ## 操作説明・デモ動画
-[デモ動画はこちら](https://www.youtube.com/watch?v=fbzGp0XJGq8)
-<!-- 開発したプロダクトの操作説明について入力してください。また、操作説明デモ動画があれば、埋め込みやリンクを記載してください -->
 
+[デモ動画はこちら](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
+
+<!-- 開発したプロダクトの操作説明について入力してください。また、操作説明デモ動画があれば、埋め込みやリンクを記載してください -->
 
 ## 注力したポイント
 
-<!-- 開発したプロダクトの中で、特に注力して作成した箇所・ポイントについて入力してください -->
-### アイデア面
+### 技術面
+
+<!-- @kerthical -->
+
+既存の AI を用いるのではなく、データセットを用いて 1 から AI を作成しています。
 
 ### デザイン面
 
-### その他
+Tailwind CSS を駆使して[元ネタ](https://start.boldvoice.com/accent-oracle)のデザインを忠実に再現しました。レスポンシブ対応しています。  
+ランディングページの地球儀は Three.js で描画しています。
 
 ## 使用技術
 
-<!-- 使用技術を入力してください -->
+### フロントエンド
 
+- Typescript
+- Remix
+- Tailwind CSS
+- Jotai
+- Three.js
 
-<!--
-markdownの記法はこちらを参照してください！
-https://docs.github.com/ja/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax
--->
+### バックエンド
+
+<!-- @kerthical -->
+
+- Python
+- LitServe
+- TODO
