@@ -52,7 +52,7 @@ export default function App() {
               </a>
             </div>
             <div className="mt-[88px] mb-[72px] px-[20px] flex items-center flex-col justify-center flex-1">
-              <div className="bg-[#13141b] flex flex-col flex-1 overflow-hidden lg:p-[32px] lg:pb-[64px] p-[20px] pb-[30px] justify-between items-center rounded-[1.875rem] shadow-[0_0_36px_rgba(0,0,0,0.3)] border border-[#f7bb43] lg:w-[980px] md:max-w-[100%] lg:max-h-[660px] max-h-[100%] min-h-[100%]">
+              <div className="bg-[#13141b] flex flex-col flex-1 overflow-auto lg:p-[32px] lg:pb-[64px] p-[20px] pb-[30px] justify-between items-center rounded-[1.875rem] shadow-[0_0_36px_rgba(0,0,0,0.3)] border border-[#f7bb43] lg:w-[980px] md:max-w-[100%] lg:max-h-[660px] max-h-[100%] min-h-[100%]">
                 <Outlet />
               </div>
             </div>
