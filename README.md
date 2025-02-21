@@ -37,7 +37,7 @@ OBACHAN（仮）
 
 ### デザイン面
 
-Tailwind を駆使して[元ネタ](https://start.boldvoice.com/accent-oracle)のデザインを忠実に再現しました。レスポンシブ対応しています。  
+Tailwind CSS を駆使して[元ネタ](https://start.boldvoice.com/accent-oracle)のデザインを忠実に再現しました。レスポンシブ対応しています。  
 ランディングページの地球儀は Three.js で描画しています。
 
 ## 使用技術
@@ -46,7 +46,7 @@ Tailwind を駆使して[元ネタ](https://start.boldvoice.com/accent-oracle)�
 
 - Typescript
 - Remix
-- Tailwindcss
+- Tailwind CSS
 - Jotai
 - Three.js
 
