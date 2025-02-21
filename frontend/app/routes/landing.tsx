@@ -1,5 +1,7 @@
 import type { MetaFunction } from "@remix-run/node";
 
+import RotatingGlobe from "~/components/rotating-globe";
+
 export const meta: MetaFunction = () => {
   return [{ title: "New Remix App" }, { content: "Welcome to Remix!", name: "description" }];
 };
@@ -46,7 +48,10 @@ export default function Landing() {
         </div>
       </div>
       <div className="flex flex-col items-center justify-end mt-10 relative h-[280px] w-[100%]">
-        <div className="absolute bottom-0 mb-[-32px] h-[307px] w-[825px]">{/* 地球儀 */}</div>
+        <div className="absolute bottom-0 mb-[-32px] h-[307px] w-[825px]">
+          {/* 地球儀 */}
+          <RotatingGlobe />
+        </div>
       </div>
     </div>
   );
