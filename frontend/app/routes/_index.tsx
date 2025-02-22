@@ -1,6 +1,7 @@
 import type { MetaFunction } from "@remix-run/node";
-import {useEffect, useReducer, useState} from "react";
+import {useState} from "react";
 //import { RotatingGlobe } from "../components/RotatingGlobe";
+import { atom, useAtom } from "jotai";
 
 import { MdOutlineThumbUpOffAlt } from "react-icons/md";
 import { MdOutlineThumbDownOffAlt } from "react-icons/md";
@@ -12,28 +13,11 @@ export const meta: MetaFunction = () => {
   return [{ title: "New Remix App" }, { content: "Welcome to Remix!", name: "description" }];
 };
 
-type State = {
-  step: number;
-};
+const stepAtom = atom(1);
 
-type Action = {
-  type: "NEXT_STEP";
-};
-
-const initialState: State = {
-  step: 1,
-};
-
-const reducer = (state: State, action: Action): State => {
-  switch (action.type) {
-    case "NEXT_STEP":
-      return { step: state.step < 3 ? state.step + 1 : state.step };
-    default:
-      return state;
-  }
-};
-
-function Landing({ dispatch }: { dispatch: React.Dispatch<Action> })  {
+function Landing() {
+  const [, setStep] = useAtom(stepAtom);
+  
   return (
     <div className="flex flex-1 flex-col items-center self-stretch lg:min-h-[700px] min-h-[522px]">
       <div className="z-20 flex flex-col gap-6">
@@ -61,8 +45,8 @@ function Landing({ dispatch }: { dispatch: React.Dispatch<Action> })  {
           <form className="w-full justify-center flex flex-col items-center gap-[16px]">
             <button
               className="flex max-w-[300px] w-[100%] pt-4 pb-4 pl-8 pr-8 rounded-[40px] gap-2 z-20 items-center justify-center cursor-pointer bg-[#fff]"
-              type="submit"
-              onClick={() => dispatch({ type: "NEXT_STEP" })}
+              type="button"
+              onClick={() => setStep(2)}
             >
               <div className="text-text-contrast-dark text-center font-bold lg:text-xl text-base leading-[120%] spacing-[-0.2px]">
                 Try Me
@@ -85,15 +69,16 @@ function Landing({ dispatch }: { dispatch: React.Dispatch<Action> })  {
   );
 }
 
-function Recording({ next }: { next: () => void }) {
+function Recording() {
+  const [, setStep] = useAtom(stepAtom);
   const [pressCount, setPressCount] = useState(0);
 
   const handleRecordPress = () => {
     const buttonCount = pressCount + 1;
-    setPressCount(buttonCount);  
+    setPressCount(buttonCount);
     
     if (buttonCount >= 2) {
-      next();
+      setStep(3);
     }
   };
   
@@ -147,9 +132,11 @@ function Recording({ next }: { next: () => void }) {
       );
 }
 
-function Result({next}: {next: () => void}) {
+function Result() {
+  const [, setStep] = useAtom(stepAtom);
+  
   return (
-    <div className="flex flex-1 flex-col justify-between items-center self-stretch lg:min-h-[456px] min-h-[522px] p-4">
+    <div className="flex flex-1 flex-col justify-between items-center self-stretch min-h-screen p-4 overflow-y-auto">
       <div className="flex items-start">
         <div className="w-[80px] h-[80px] p-2">
           <div className="w-full h-full bg-red-500 rounded-full" />
@@ -165,7 +152,7 @@ function Result({next}: {next: () => void}) {
         </div>
       </div>
 
-      <div className="flex w-full flex-col items-center gap-6">
+      <div className="flex w-full flex-col items-center gap-6 mb-4">
         <button
           className="z-20 cursor-pointer flex transition-all duration-200 justify-center items-center rounded-full w-[200px] h-[50px] bg-white"
           type="button"
@@ -179,7 +166,7 @@ function Result({next}: {next: () => void}) {
         <button
           className="z-20 cursor-pointer flex transition-all duration-200 justify-center items-center rounded-full w-[200px] h-[50px] bg-white"
           type="button"
-          onClick={next}
+          onClick={() => setStep(1)}
         >
           <IoMdRefresh className="w-[46px] h-[46px] text-[#13141b]" />
           <p className="lg:text-3xl">Restart</p>
@@ -261,21 +248,13 @@ function Detail() {
 }
 
 export default function Index() {
-  const [state, dispatch] = useReducer(reducer, initialState);
-
-  const nextStep = () => {
-    dispatch({ type: "NEXT_STEP" });
-  };
-
-  useEffect(() => {
-    console.log(`現在のステップ: ${state.step}`);
-  }, [state.step]);
+  const [step] = useAtom(stepAtom);
 
   return (
-    <div key={state.step}>
-      {state.step === 1 && <Landing dispatch={dispatch} />}
-      {state.step === 2 && <Recording next={nextStep} />}
-      {state.step === 3 && <Result next={nextStep}/>}
+    <div key={step}>
+      {step === 1 && <Landing />}
+      {step === 2 && <Recording />}
+      {step === 3 && <Result />}
     </div>
   );
 }
