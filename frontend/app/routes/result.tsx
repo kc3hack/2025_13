@@ -11,20 +11,18 @@ export const meta: MetaFunction = () => {
 
 export default function Result() {
   return (
-    <div className="flex flex-1 flex-col justify-between items-center self-stretch lg:min-h-[456px] min-h-[522px]">
-      <div className="flex items-center justify-center h-screen">
+    <div className="flex flex-col items-center justify-start h-screen p-4 bg-[#13141b]">
+      <div className="mb-8">
         <div className="w-[80px] h-[80px] p-2">
           <div className="w-full h-full bg-red-500 rounded-full" />
         </div>
       </div>
-      <div className="flex flex-col gap-4">
-        <div className="lg:text-8xl text-xl tracking-[-0.6px] lg:text-center text-[#11D1A7]">
+      <div className="flex flex-col gap-4 text-center items-center"> 
+        <div className="lg:text-8xl text-5xl tracking-[-0.6px] text-[#11D1A7] font-bold text-center">
           関西弁
         </div>
-        <div className="lg:text-4xl text-xl tracking-[-0.6px] lg:text-center text-[#11D1A7]">
-          I love exploring local markets and trying out different foods. Whether it&apos;s fresh produce, unique spices,
-          or handmade treats, it&apos;s exciting to discover new flavors. I always leave inspired to cook something
-          creative at home.
+        <div className="lg:text-2xl text-base tracking-[-0.6px] text-white/70 lg:w-[70%] w-[90%] text-center">
+          Your accent is <span className="text-white font-bold">Japanese</span> my friend. I identified your accent based on subtle details in your pronunciation. Want to sound like a native English speaker? Download the <span className="text-white font-bold">BoldVoice</span> app today.
         </div>
       </div>
       <div className="flex w-full relative flex-col justify-end items-center gap-[12px]">
@@ -34,7 +32,7 @@ export default function Result() {
             type="button"
           >
             <CiPlay1 className="w-[46px] h-[46px] text-[#13141b]" />
-            <p className="lg:text-3xl">
+            <p className="lg:text-2xl">
               Replay
             </p>
           </button>
@@ -45,7 +43,7 @@ export default function Result() {
           type="button"
         >
           <IoMdRefresh className="w-[46px] h-[46px] text-[#13141b]" />
-          <p className="lg:text-3xl">
+          <p className="lg:text-2xl">
             Restart
           </p>
         </button>
