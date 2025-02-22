@@ -24,7 +24,7 @@ export default function Landing() {
         </div>
         <div className="flex flex-col gap-6 lg:max-w-[610px] lg:w-[610px] items-center justify-center">
           <div className="flex flex-col w-[100%] items-center gap-5">
-            <div className="font-normal leading-[80%] lg:text-[77px] text-[67px] text-center uppercase opacity-100 text-white relative top-[9px] mb-[12px]">
+            <div className="font-normal font-sofia leading-[80%] lg:text-[65px] text-[60px] text-center uppercase opacity-100 text-white relative top-[9px] mb-[12px]">
               BoldVoice <span className="text-indigo-500">Accent</span> Oracle
             </div>
             <div className="font-medium spacing-[-0.48px] lg:text-2xl text-xl text-center text-indigo-500">

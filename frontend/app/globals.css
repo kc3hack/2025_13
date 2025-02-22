@@ -1,1 +1,6 @@
+@import url("https://fonts.googleapis.com/css2?family=Sofia+Sans+Extra+Condensed:ital,wght@0,1..1000;1,1..1000&display=swap");
 @import "tailwindcss";
+
+@theme {
+  --font-sofia: "Sofia Sans Extra Condensed";
+}
