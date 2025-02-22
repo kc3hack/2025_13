@@ -4,6 +4,8 @@ import { useRouteLoaderData } from "@remix-run/react";
 import { JSX, useCallback, useEffect, useRef, useState } from "react";
 import { AiOutlineLoading } from "react-icons/ai";
 import { FaMicrophone, FaRegSquare } from "react-icons/fa";
+
+import Oracle from "~/oracle";
 import { loader as rootLoader } from "~/root";
 
 export const meta: MetaFunction = () => {
@@ -74,7 +76,7 @@ export default function Index() {
       } catch (error) {
         if (error instanceof Error) {
           setError(error.message);
-      } else {
+        } else {
           setError("Internal server error. Please try again later.");
         }
         setRecordingState("idle");
@@ -86,8 +88,8 @@ export default function Index() {
   return (
     <div className="flex flex-1 flex-col justify-between items-center self-stretch lg:min-h-[456px] min-h-[522px]">
       <div className="gap-[6px] flex items-start self-start min-h-[110px]">
-        <div className="w-[60px] h-[60px] p-2">
-          <div className="w-full h-full bg-red-500 rounded-full" />
+        <div className="w-[60px] h-[60px]">
+          <Oracle />
         </div>
         <div
           className={`flex flex-col justify-center items-start gap-[2px] py-3 px-4 border rounded-[20px] rounded-tl-none ${error ? "border-error" : "border-recording"}`}
