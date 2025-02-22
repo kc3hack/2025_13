@@ -70,3 +70,11 @@ export default function App() {
     </html>
   );
 }
+
+export function loader() {
+  return {
+    ENV: {
+      BACKEND_ORIGIN: process.env["BACKEND_ORIGIN"],
+    },
+  };
+}
