@@ -16,18 +16,18 @@ export default function Landing() {
               <div className="w-[60px] h-[60px] p-2">
                 <div className="w-full h-full bg-red-500 rounded-full" />
               </div>
-              {/* <div className="absolute w-[768px] md:w-[980px] lg:w-[1082px] lg:bottom-[-17px]">
-                <img alt="OracleWaveAudioFuzzy" src="/public/OracleWaveAudioFuzzy.png" />
-              </div> */}
             </div>
           </div>
+          <div className="absolute w-[768px] md:w-[980px] lg:w-[1082px] lg:bottom-[-17px]">
+            <img alt="OracleWaveAudioFuzzy" height="100%" src="/OracleWaveAudioFuzzy.png" width="100%" />
+          </div>
         </div>
-        <div className="flex flex-col gap-6 lg:max-w-[610px] items-center justify-center">
-          <div className="flex flex-col items-center gap-5">
-            <div className="font-normal leading-[80%] text-center lg:text-[60px] text-[67px] uppercase text-text-primary-dark text-white relative top-[9px] mb-[-12px] pb-[50px]">
-              BoldVoice<span className="text-indigo-500">Accent</span>Oracle
+        <div className="flex flex-col gap-6 lg:max-w-[610px] lg:w-[610px] items-center justify-center">
+          <div className="flex flex-col w-[100%] items-center gap-5">
+            <div className="font-normal leading-[80%] lg:text-[77px] text-[67px] text-center uppercase opacity-100 text-white relative top-[9px] mb-[12px]">
+              BoldVoice <span className="text-indigo-500">Accent</span> Oracle
             </div>
-            <div className="font-medium leading-[120%] spacing-[-0.48px] lg:text-2xl text-center text-indigo-500">
+            <div className="font-medium spacing-[-0.48px] lg:text-2xl text-xl text-center text-indigo-500">
               Do you have an accent when speaking Japanese? I bet I can guess it in 30 seconds or less.
             </div>
           </div>
@@ -49,7 +49,6 @@ export default function Landing() {
       </div>
       <div className="flex flex-col items-center justify-end mt-10 relative h-[280px] w-[100%]">
         <div className="absolute bottom-0 mb-[-32px] h-[307px] w-[825px]">
-          {/* 地球儀 */}
           <RotatingGlobe />
         </div>
       </div>
