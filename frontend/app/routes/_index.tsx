@@ -1,12 +1,16 @@
 import type { MetaFunction } from "@remix-run/node";
 
+import { useRouteLoaderData } from "@remix-run/react";
 import { JSX, useCallback, useEffect, useRef, useState } from "react";
 import { AiOutlineLoading } from "react-icons/ai";
 import { FaMicrophone, FaRegSquare } from "react-icons/fa";
+import { loader as rootLoader } from "~/root";
 
 export const meta: MetaFunction = () => {
   return [{ title: "New Remix App" }, { content: "Welcome to Remix!", name: "description" }];
 };
+
+type ApiResponse = Record<string, number>;
 
 type RecordingState = "idle" | "processing" | "recording";
 
@@ -30,6 +34,8 @@ const buttonText = {
 } satisfies Record<RecordingState, string>;
 
 export default function Index() {
+  const rootData = useRouteLoaderData<typeof rootLoader>("root");
+
   const [recordingState, setRecordingState] = useState<RecordingState>("idle");
   const [error, setError] = useState<string>();
   const mediaRecorder = useRef<MediaRecorder>(null);
@@ -55,20 +61,22 @@ export default function Index() {
 
     mediaRecorder.current.stop();
     mediaRecorder.current.ondataavailable = async (event) => {
-      // TODO: 送信処理を実装する
       const formData = new FormData();
-      formData.append("audio", event.data, "audio.wav");
-      // fetch("backend", {
-      //   method: "POST",
-      //   body: formData,
-      // });
-      await new Promise((resolve) => setTimeout(resolve, 2000));
+      formData.append("file", event.data, "audio.wav");
 
-      // eslint-disable-next-line no-constant-condition
-      if (false /* 処理に成功したか？ */) {
-        // ページ遷移
+      try {
+        const result = (await fetch(`${rootData?.ENV.BACKEND_ORIGIN}/predict`, {
+          method: "POST",
+          body: formData,
+        }).then((response) => response.json())) as ApiResponse;
+        console.log(result);
+        //TODO: ページ遷移する
+      } catch (error) {
+        if (error instanceof Error) {
+          setError(error.message);
       } else {
-        setError("エラーが発生しました");
+          setError("Internal server error. Please try again later.");
+        }
         setRecordingState("idle");
       }
     };
