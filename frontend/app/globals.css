@@ -1,1 +1,13 @@
 @import "tailwindcss";
+
+@theme {
+  --color-bg-primary: #13141b;
+  --color-bg-primary-60: color-mix(in srgb, var(--color-bg-primary) 60%, transparent);
+  --color-recording: #f7bb43;
+  --color-recording-60: color-mix(in srgb, var(--color-recording) 60%, transparent);
+  --color-success: #4cd964;
+  --color-success-60: color-mix(in srgb, var(--color-success) 60%, transparent);
+  --color-error: #ea5477;
+  --color-error-60: color-mix(in srgb, var(--color-error) 60%, transparent);
+  --color-listening: #1aa23a;
+}
