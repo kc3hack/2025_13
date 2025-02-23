@@ -9,12 +9,16 @@
     "lint": "eslint --ignore-pattern .gitignore --fix . && prettier --ignore-path .gitignore --write . && tsc"
   },
   "dependencies": {
+    "@react-three/drei": "^9.121.5",
+    "@react-three/fiber": "^8.17.14",
     "@remix-run/node": "^2.15.3",
     "@remix-run/react": "^2.15.3",
+    "@types/three": "^0.173.0",
     "isbot": "^5.1.22",
     "react": "^18",
     "react-dom": "^18",
-    "react-icons": "^5.4.0"
+    "react-icons": "^5.4.0",
+    "three": "^0.173.0"
   },
   "devDependencies": {
     "@eslint/compat": "^1.2.6",
