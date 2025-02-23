@@ -5,7 +5,7 @@ export default function Layout({
   children,
 }: {
   children: ReactNode;
-  status: "error" | "recording" | "success";
+  status: "error" | "landing" | "recording" | "success";
 }) {
   return (
     <div className="bg-[#13141b] relative min-h-[100dvh] overflow-y-scroll">
@@ -20,6 +20,7 @@ export default function Layout({
               fill="#343434"
               r="0.5"
               stroke={(() => {
+                if (status === "landing") return "#8891F3";
                 if (status === "recording") return "#f7bb43";
                 if (status === "error") return "#ea5477";
                 return "#4cd964";
@@ -39,6 +40,7 @@ export default function Layout({
         <div className="mt-[88px] mb-[72px] px-[20px] flex items-center flex-col justify-center flex-1">
           <div
             className={`bg-[#13141b] flex flex-col flex-1 lg:p-[32px] lg:pb-[64px] p-[20px] pb-[30px] justify-between items-center rounded-[1.875rem] shadow-[0_0_36px_rgba(0,0,0,0.3)] border ${(() => {
+              if (status === "landing") return "border-landing";
               if (status === "recording") return "border-recording";
               if (status === "error") return "border-error";
               return "border-success";
@@ -50,6 +52,7 @@ export default function Layout({
         <div className="max-[427px]:pb-[14px] pb-[24px] ml-auto mr-auto absolute bottom-0 w-[100%] flex items-center justify-center">
           <div
             className={`${(() => {
+              if (status === "landing") return "text-landing";
               if (status === "recording") return "text-recording";
               if (status === "error") return "text-error";
               return "text-success";

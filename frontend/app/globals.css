@@ -1,8 +1,11 @@
+@import url("https://fonts.googleapis.com/css2?family=Sofia+Sans+Extra+Condensed:ital,wght@0,1..1000;1,1..1000&display=swap");
 @import "tailwindcss";
 
 @theme {
   --color-bg-primary: #13141b;
   --color-bg-primary-60: color-mix(in srgb, var(--color-bg-primary) 60%, transparent);
+  --color-landing: #8891f3;
+  --color-landing-60: color-mix(in srgb, var(--color-landing) 60% transparent);
   --color-recording: #f7bb43;
   --color-recording-60: color-mix(in srgb, var(--color-recording) 60%, transparent);
   --color-success: #4cd964;
@@ -10,4 +13,5 @@
   --color-error: #ea5477;
   --color-error-60: color-mix(in srgb, var(--color-error) 60%, transparent);
   --color-listening: #1aa23a;
+  --font-sofia: "Sofia Sans Extra Condensed";
 }
