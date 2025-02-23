@@ -1,9 +1,8 @@
 import { useAtomValue } from "jotai";
 
+import Layout from "~/components/layout";
+import Oracle from "~/components/oracle";
 import { resultAtom } from "~/constants";
-
-import Layout from "../layout";
-import Oracle from "../oracle";
 
 export default function Result() {
   const result = useAtomValue(resultAtom);

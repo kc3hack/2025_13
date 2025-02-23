@@ -1,9 +1,8 @@
 import { useSetAtom } from "jotai";
 
+import Globe from "~/components/globe";
+import Layout from "~/components/layout";
 import { pageAtom } from "~/constants";
-
-import Globe from "../globe";
-import Layout from "../layout";
 
 export default function Landing() {
   const setPage = useSetAtom(pageAtom);

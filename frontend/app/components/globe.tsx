@@ -17,7 +17,7 @@ function Scene() {
   const meshReference = useRef<THREE.Mesh>(null);
   const geometryReference = useRef<THREE.BufferGeometry>(null);
   const wireframeReference = useRef<LineSegments2>(null);
-  const material = new LineMaterial({ color: 0x88_91_f3, linewidth: 3 });
+  const material = new LineMaterial({ color: 0x88_91_F3, linewidth: 3 });
   const sphereGeometry = useSphereMesh();
 
   useEffect(() => {

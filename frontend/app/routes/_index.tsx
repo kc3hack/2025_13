@@ -1,10 +1,10 @@
 import { type ActionFunctionArgs, type MetaFunction } from "@remix-run/node";
 import { useAtomValue } from "jotai";
 
-import Landing from "~/components/pages/landing";
-import Recording from "~/components/pages/recording";
-import Result from "~/components/pages/result";
 import { pageAtom } from "~/constants";
+import Landing from "~/pages/landing";
+import Recording from "~/pages/recording";
+import Result from "~/pages/result";
 
 export const meta: MetaFunction = () => {
   return [{ title: "New Remix App" }, { content: "Welcome to Remix!", name: "description" }];
